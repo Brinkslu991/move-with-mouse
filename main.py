@@ -28,13 +28,21 @@ def handle_events ():
     return True
 def main():
     screen = init_game()
+    background_image = pygame.image.load('saturn_family1.jpg').convert()
+    player_image = pygame.image.load('player.png').convert()
+    player_image.set_colorkey(config.BLACK)
     clock = pygame.time.Clock() # Initialize the clock here
     running = True
     while running:
         running = handle_events()
-        screen.fill(config.WHITE) # Use color from config
+#        screen.fill(config.WHITE) # Use color from config
         pygame.display.flip()
+        player_post = pygame.mouse.get_pos()
+        x = player_post[0]
+        y = player_post[1]
         
+        screen.blit(background_image, [0,0])
+        screen.blit(player_image, [x,y])
         # Limit the frame rate to the specified frames per second (FPS)
         clock.tick(config.FPS) # Use the clock to control the frame rate
 

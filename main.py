@@ -40,6 +40,8 @@ def main():
         player_post = pygame.mouse.get_pos()
         x = player_post[0]
         y = player_post[1]
+        x = player_post[0] - 99 // 2
+        y = player_post[1] - 75 // 2
         
         screen.blit(background_image, [0,0])
         screen.blit(player_image, [x,y])
